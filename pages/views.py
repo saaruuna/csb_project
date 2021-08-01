@@ -24,7 +24,6 @@ def homePageView(request):
 
 	if request.GET.get('search'):
 		sql += " AND content LIKE '%" + str(request.GET.get('search')) + "%'"
-		print(sql)
 		messages = Message.objects.raw(sql)
 
 	return render(request, 'pages/index.html', {'msgs': messages, 'users': users,})
